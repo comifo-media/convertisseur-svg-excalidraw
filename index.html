@@ -5,21 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Convertisseur universel SVG → Excalidraw (Pour Eric)</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; color: #2c3e50; }
-  header { background: #2c3e50; color: #fff; padding: 20px 28px; }
+  body { font-family: Arial, sans-serif; margin: 0; background: #263A58; color: #f1f5f9; }
+  header { background: #1b2a42; color: #ffffff; padding: 20px 28px; border-bottom: 1px solid #3c5378; }
   header h1 { margin: 0; font-size: 22px; }
   main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
-  #drop { border: 2px dashed #7f8c8d; border-radius: 10px; padding: 40px; text-align: center; background: #fff; cursor: pointer; }
-  #drop.over { border-color: #2980b9; background: #eef7fc; }
-  textarea { width: 100%; height: 160px; margin-top: 16px; font-family: monospace; font-size: 13px; box-sizing: border-box; }
-  button { background: #2980b9; color: #fff; border: 0; padding: 10px 18px; border-radius: 6px; font-size: 15px; cursor: pointer; margin-top: 12px; }
-  button:disabled { background: #95a5a6; }
-  #status { margin-top: 14px; white-space: pre-wrap; font-size: 14px; }
-  #warnings { color: #a04000; font-size: 13px; white-space: pre-wrap; }
-  #preview { display: none; box-sizing: border-box; width: 100%; max-width: 800px; max-height: 600px; margin: 16px auto 0; padding: 12px; border: 1px solid #d5dbe1; border-radius: 8px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.06); overflow: hidden; align-items: center; justify-content: center; }
+  #drop { border: 2px dashed #8fa6c4; border-radius: 10px; padding: 40px; text-align: center; background: #1e3150; color: #f1f5f9; cursor: pointer; }
+  #drop.over { border-color: #6cb6ea; background: #2b4a71; }
+  textarea { width: 100%; height: 160px; margin-top: 16px; font-family: monospace; font-size: 13px; box-sizing: border-box; background: #0f1b2e; color: #e8eef6; border: 1px solid #4a6384; border-radius: 6px; padding: 10px; }
+  textarea::placeholder { color: #8ea3be; }
+  textarea:focus { outline: 2px solid #6cb6ea; outline-offset: 1px; }
+  input[type="file"] { color: #f1f5f9; }
+  main p { color: #f1f5f9; }
+  button { background: #F59E0B; color: #0f1b2e; border: 0; padding: 12px 22px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.35); transition: background 0.15s, transform 0.1s; }
+  button:hover { background: #FBBF24; transform: translateY(-1px); }
+  button:active { transform: translateY(0); }
+  button:focus-visible { outline: 3px solid #ffffff; outline-offset: 2px; }
+  button:disabled { background: #5d6d7e; color: #e5e9ee; }
+  #status { margin-top: 14px; white-space: pre-wrap; font-size: 14px; color: #f1f5f9; }
+  #warnings { color: #ffc27a; font-size: 13px; white-space: pre-wrap; }
+  #preview { display: none; box-sizing: border-box; width: 100%; max-width: 800px; max-height: 600px; margin: 16px auto 0; padding: 12px; border: 1px solid #9fb3cc; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.25); overflow: hidden; align-items: center; justify-content: center; }
   #preview.show { display: flex; }
   #preview img { display: block; max-width: 100%; max-height: 576px; width: auto; height: auto; object-fit: contain; }
-  footer { margin-top: 40px; padding: 16px 0 24px; text-align: center; font-size: 13px; color: #7f8c8d; border-top: 1px solid #e1e6eb; }
+  footer { margin-top: 40px; padding: 16px 0 24px; text-align: center; font-size: 13px; color: #b4c3d6; border-top: 1px solid #3c5378; }
 </style>
 </head>
 <body>

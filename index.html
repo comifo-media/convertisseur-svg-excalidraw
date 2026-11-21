@@ -1,1 +1,36 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convertisseur universel SVG → Excalidraw (Pour Eric)</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; color: #2c3e50; }
+  header { background: #2c3e50; color: #fff; padding: 20px 28px; }
+  header h1 { margin: 0; font-size: 22px; }
+  main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+  #drop { border: 2px dashed #7f8c8d; border-radius: 10px; padding: 40px; text-align: center; background: #fff; cursor: pointer; }
+  #drop.over { border-color: #2980b9; background: #eef7fc; }
+  textarea { width: 100%; height: 160px; margin-top: 16px; font-family: monospace; font-size: 13px; box-sizing: border-box; }
+  button { background: #2980b9; color: #fff; border: 0; padding: 10px 18px; border-radius: 6px; font-size: 15px; cursor: pointer; margin-top: 12px; }
+  button:disabled { background: #95a5a6; }
+  #status { margin-top: 14px; white-space: pre-wrap; font-size: 14px; }
+  #warnings { color: #a04000; font-size: 13px; white-space: pre-wrap; }
+  #preview { display: none; box-sizing: border-box; width: 100%; max-width: 800px; max-height: 600px; margin: 16px auto 0; padding: 12px; border: 1px solid #d5dbe1; border-radius: 8px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.06); overflow: hidden; align-items: center; justify-content: center; }
+  #preview.show { display: flex; }
+  #preview img { display: block; max-width: 100%; max-height: 576px; width: auto; height: auto; object-fit: contain; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Convertisseur universel SVG → Excalidraw (Pour Eric)</h1>
+</header>
+<main>
+  <div id="drop">Glisse un fichier .svg ici ou clique pour le choisir<br><input type="file" id="file" accept=".svg,image/svg+xml" style="margin-top:12px"></div>
+  <p>Ou colle le code SVG ci-dessous :</p>
+  <textarea id="code" placeholder="<svg ...>...</svg>"></textarea>
+  <button id="go">Convertir et télécharger le .excalidraw</button>
+  <div id="status"></div>
+  <div id="warnings"></div>
+  <div id="preview" aria-label="Aperçu du SVG"></div>
+</main>
